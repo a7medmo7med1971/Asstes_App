@@ -6,6 +6,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { MobileSidebar } from "./MobileSidebar";
 
 export const AppHeader = () => {
   return (
@@ -36,8 +37,8 @@ export const AppHeader = () => {
           </Select>
         </div>
 
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-muted-foreground hidden sm:block">Category:</span>
+        <div className="flex items-center gap-2 hidden sm:flex">
+          <span className="text-sm text-muted-foreground">Category:</span>
           <Select defaultValue="all">
             <SelectTrigger className="w-24 h-9 text-sm">
               <SelectValue placeholder="All" />
@@ -50,6 +51,9 @@ export const AppHeader = () => {
             </SelectContent>
           </Select>
         </div>
+
+        {/* Mobile menu toggle */}
+        <MobileSidebar />
       </div>
     </header>
   );

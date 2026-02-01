@@ -211,7 +211,7 @@ export const InteractiveAssetMap = () => {
       </div>
 
       {/* Map Container */}
-      <div ref={mapRef} className="h-[400px] w-full" />
+      <div ref={mapRef} className="h-[400px] w-full z-10" />
 
       {/* Legend */}
       <div className="p-4 border-t border-border bg-muted/30">
