@@ -29,7 +29,7 @@ export const MobileSidebar = () => {
           <span className="sr-only">Toggle menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-72 p-0 flex flex-col ">
+      <SheetContent side="left" className="w-72 p-0 flex flex-col overflow-auto ">
         {/* Navigation */}
         <nav className="pt-12 px-3 space-y-1 ">
           {navItems.map((item) => (
