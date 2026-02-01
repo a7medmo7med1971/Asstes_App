@@ -63,7 +63,7 @@ export const AppSidebar = () => {
             className="w-full"
             onClick={signOut}
           >
-            <LogOut className="w-4 h-4 ml-2" />
+            <LogOut className="w-4 h-4 ml-2 " />
               Logout
           </Button>
         </div>
