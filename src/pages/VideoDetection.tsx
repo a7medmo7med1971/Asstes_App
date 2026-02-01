@@ -38,13 +38,13 @@ const VideoDetection = () => {
     const maxSize = 2 * 1024 * 1024 * 1024; // 2GB
 
     if (file.size > maxSize) {
-      toast.error("حجم الفيديو كبير جداً. الحد الأقصى 2GB");
+      toast.error("Video file is too large. Max size is 2GB");
       return;
     }
 
     const validTypes = ["video/mp4", "video/avi", "video/quicktime", "video/x-msvideo"];
     if (!validTypes.includes(file.type)) {
-      toast.error("نوع الملف غير مدعوم. يرجى رفع MP4, AVI, أو MOV");
+      toast.error("Unsupported file type. Please upload MP4, AVI, or MOV");
       return;
     }
 
@@ -60,7 +60,7 @@ const VideoDetection = () => {
 
     setVideoQueue((prev) => [newVideo, ...prev]);
     setSelectedVideo(newVideo);
-    toast.success(`تم رفع الفيديو: ${file.name}`);
+    toast.success(`Uploaded video: ${file.name}`);
 
     // Reset input
     if (fileInputRef.current) {
@@ -185,7 +185,7 @@ const VideoDetection = () => {
             ) : (
               <div className="text-center">
                 <Video className="w-16 h-16 text-muted-foreground mx-auto mb-2" />
-                <p className="text-muted-foreground">اختر فيديو للمعاينة</p>
+                <p className="text-muted-foreground">Select a video to preview</p>
               </div>
             )}
           </div>
@@ -215,7 +215,7 @@ const VideoDetection = () => {
 
         {/* Upload Section */}
         <div className="bg-card border border-border rounded-lg p-4">
-          <h3 className="font-semibold text-foreground mb-4">رفع فيديو</h3>
+          <h3 className="font-semibold text-foreground mb-4">Upload Video</h3>
           <div 
             className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary/50 transition-colors cursor-pointer"
             onDrop={handleDrop}
@@ -223,9 +223,9 @@ const VideoDetection = () => {
             onClick={() => fileInputRef.current?.click()}
           >
             <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
-            <p className="text-sm text-muted-foreground mb-2">اسحب وأفلت الفيديو هنا</p>
+            <p className="text-sm text-muted-foreground mb-2">Drag & drop video here</p>
             <p className="text-xs text-muted-foreground mb-3">MP4, AVI, MOV (Max 2GB)</p>
-            <Button size="sm" type="button">تصفح</Button>
+            <Button size="sm" type="button">Browse</Button>
           </div>
           <input
             ref={fileInputRef}
@@ -240,17 +240,17 @@ const VideoDetection = () => {
       {/* Video Queue */}
       <div className="bg-card border border-border rounded-lg overflow-hidden">
         <div className="px-5 py-4 border-b border-border">
-          <h2 className="font-semibold text-foreground">قائمة المعالجة</h2>
+          <h2 className="font-semibold text-foreground">Processing Queue</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="table-header">
               <tr>
-                <th className="text-left py-3 px-4">اسم الفيديو</th>
-                <th className="text-left py-3 px-4">المدة</th>
-                <th className="text-left py-3 px-4">الحالة</th>
-                <th className="text-left py-3 px-4">التقدم</th>
-                <th className="text-left py-3 px-4">إجراءات</th>
+                <th className="text-left py-3 px-4">Video Name</th>
+                <th className="text-left py-3 px-4">Duration</th>
+                <th className="text-left py-3 px-4">Status</th>
+                <th className="text-left py-3 px-4">Progress</th>
+                <th className="text-left py-3 px-4">Actions</th>
               </tr>
             </thead>
             <tbody>
